@@ -13,5 +13,15 @@
     "coolq"
   ],
   "author": "taevas <di4urp@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cq-websocket": "^2.0.1",
+    "hubot": "^3.3.2"
+  },
+  "peerDependencies": {
+    "hubot": ">=2.0"
+  },
+  "devDependencies": {
+    "coffee-script": ">=1.2.0"
+  }
 }
