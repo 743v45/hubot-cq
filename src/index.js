@@ -16,7 +16,7 @@ class CQ extends Adapter {
 
     this.robot.alias = (this.robot.name === this.options.username || this.robot.alias)
       ? this.robot.alias
-      : settings.username
+      : this.options.username
     if (this.robot.alias) {
       this.robot.logger.info(`[startup] Respond to alias: ${this.robot.alias}`)
     }
