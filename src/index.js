@@ -36,6 +36,12 @@ class CQ extends Adapter {
       this.robot.logger.error('Try to connect to the CoolQ %s %d times', type, attempts)
     }).on('socket.reconnect', () => {
       this.robot.logger.info('Reconnect to CoolQ')
+    }).on('meta_event.heartbeat', () => {
+      this.robot.logger.debug('meta_event.heartbeat')
+      this.client.bot._apiSock &&
+      this.client.bot._apiSock._connection &&
+      this.client.bot._apiSock._connection.pong &&
+      this.client.bot._apiSock._connection.pong()
     })
 
     this.client.bot.connect()
@@ -51,12 +57,12 @@ class CQ extends Adapter {
     this.robot.logger.info('Disconnected from CoolQ')
     this.client.bot.disconnect()
 
-    process.exit(1);
+    process.exit(1)
   }
 
   error(err) {
     this.robot.emit('error', err)
-    // process.exit(1);
+    // process.exit(1)
   }
 
   reply(envelope, ...messages) {
