@@ -10,9 +10,17 @@ class client {
     this.robot.logger.debug('sendMessage', envelope, message)
 
     if (typeof message === 'string') {
-      this.bot('send_msg', Object.assign({
+      const data = Object.assign({
         message,
-      }, envelope.room))
+      }, envelope.room);
+      if (!data.message_typedata) {
+        if (data.group_id) {
+          data.message_typedata = 'group'
+        } else if (data.user_id) {
+          data.message_typedata = 'private'
+        }
+      }
+      this.bot('send_msg', data)
     }
   }
 }
