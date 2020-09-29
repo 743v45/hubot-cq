@@ -13,11 +13,11 @@ class client {
       const data = Object.assign({
         message,
       }, envelope.room);
-      if (!data.message_typedata) {
+      if (!data.message_type) {
         if (data.group_id) {
-          data.message_typedata = 'group'
+          data.message_type = 'group'
         } else if (data.user_id) {
-          data.message_typedata = 'private'
+          data.message_type = 'private'
         }
       }
       this.bot('send_msg', data)
