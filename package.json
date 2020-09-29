@@ -1,6 +1,6 @@
 {
   "name": "hubot-cq",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A CoolQ adapter for hubot",
   "main": "index.js",
   "scripts": {
